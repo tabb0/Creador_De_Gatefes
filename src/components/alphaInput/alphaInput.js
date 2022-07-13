@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Row } from "react-bootstrap";
 import { MESSAGES } from "../../constants/messageConstants";
 
-const PhoneInput = (props) => {
+const AlphaInput = (props) => {
     const [text, setText] = useState('');
     const [error, setError] = useState('');
 
@@ -20,10 +20,10 @@ const PhoneInput = (props) => {
         setError('');
 
         // eslint-disable-next-line
-        const regex = /^[0-9]*$/;
+        const regex = /^[A-Za-z0-9]*$/;
         const regexResult = regex.test(textToValidate);
         if (!regexResult) {
-            setError(MESSAGES.ONLYNUMBERS_TEXT);
+            setError(MESSAGES.ONLYLETTERSANDNUM_TEXT);
         }
         return regexResult;
     };
@@ -33,7 +33,7 @@ const PhoneInput = (props) => {
             <p>{props.label}</p>
             <input
                 className="sapri-input"
-                type='number'
+                type='text'
                 name={props.controlName}
                 placeholder={props.placeholderText}
                 value={text}
@@ -46,4 +46,4 @@ const PhoneInput = (props) => {
     )
 }
 
-export default PhoneInput;
+export default AlphaInput;

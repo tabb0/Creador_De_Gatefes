@@ -1,23 +1,30 @@
-import { useState } from "react";
-import { FileUploader } from "react-drag-drop-files";
+import React from 'react';
+import { useState, useRef } from "react";
+import { Row } from 'react-bootstrap';
 
-const fileTypes = ["JPEG", "PNG", "GIF"];
-
-export default function ImageUploaderInput() {
+export default function ImageUploaderInput(props) {
     const [file, setFile] = useState(null);
-    const handleChange = (file) => {
-        setFile(file);
+    const fileInput = useRef(null);
+
+    const handleFileInputClick = (event) => {
+        event.preventDefault();
+        fileInput.current.click();
+    }
+
+    const handleChange = (event) => {
+        setFile(event.target.files[0]);
+
+        props.handleOnChangeValidation && props.handleOnChangeValidation({
+            field: props.controlName,
+            result: true,
+            message: '',
+            value: event.target.files[0]
+        });
     };
     return (
-        <div className="ImageUploaderInput">
-            <p>Cargar Imagen</p>
-            <FileUploader
-                multiple={true}
-                handleChange={handleChange}
-                name="file"
-                types={fileTypes}
-            />
-            <p>{file ? `File name: ${file[0].name}` : "no files uploaded yet"}</p>
-        </div>
+        <label className="ImageUploaderInput">
+            <div className="sapri-button" onClick={handleFileInputClick}>Cargar Imagen</div>
+            <input type="file" ref={fileInput} className="sapri-file-input" id="file" name="file" onChange={handleChange} />
+        </label>
     );
 }

@@ -1,66 +1,49 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Row } from "react-bootstrap";
 import { MESSAGES } from "../../constants/messageConstants";
 
-const emailState = {
-    email: '',
-    error: ''
-}
+const EmailInput = (props) => {
+    const [text, setText] = useState('');
+    const [error, setError] = useState('');
 
-class emailInput extends Component {
-
-    constructor() {
-        super();
-        this.state = emailState;
-        this.onChange = this.onChange.bind(this);
-    }
-
-    // Detect changes in the email input field
-    onChange(e) {
-        const { handleOnChangeValidation } = this.props;
-        this.setState({
-            email: e.target.value
+    useEffect(() => {
+        const validationResult = emailValidation(text);
+        props.handleOnChangeValidation && props.handleOnChangeValidation({
+            field: props.controlName,
+            result: validationResult,
+            message: error,
+            value: text
         });
-        handleOnChangeValidation && handleOnChangeValidation('email', this.emailValidation(), this.state.error);
-    }
+    }, [text]);
 
-    emailValidation() {
+    const emailValidation = () => {
         // Resets the validation
-        this.setState({
-            error: ""
-        });
+        setError('');
 
         // eslint-disable-next-line
         const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-        if (!this.state.email || regex.test(this.state.email) === false) {
-            this.setState({
-                error: MESSAGES.INVALID_EMAIL
-            });
+        if (!text || regex.test(text) === false) {
+            setError(MESSAGES.INVALID_EMAIL);
             return false;
         }
         return true;
     }
 
-    render() {
-        const {
-            label, controlName, placeholderText
-        } = this.props;
-
-        return (
-            <label>
-                <p>{label}</p>
-                <input
-                    type='Email'
-                    name={controlName}
-                    placeholder={placeholderText}
-                    onChange={this.onChange}
-                />
-                <Row>
-                    <span className="text-danger">{this.state.error}</span>
-                </Row>
-            </label >
-        );
-    }
+    return (
+        <label>
+            <p>{props.label}</p>
+            <input
+                className="sapri-input"
+                type='email'
+                name={props.controlName}
+                placeholder={props.placeholderText}
+                onChange={(e) => { setText(e.target.value) }}
+            />
+            <Row>
+                <span className="text-danger">{error}</span>
+            </Row>
+        </label >
+    );
 }
 
-export default emailInput;
+export default EmailInput;

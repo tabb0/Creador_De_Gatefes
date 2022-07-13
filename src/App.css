@@ -1,5 +1,67 @@
+@font-face {
+  font-family: UniSans;
+  src: url("/fonts/Uni Sans Heavy Italic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: UniSans;
+  font-weight: bold;
+  src: url("/fonts/Uni Sans Heavy.otf") format("opentype");
+}
+
+html, body {
+  background-color: #E7E7E7 !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .mainLogoImage {
+    height: 250px;
+    width: auto;
+  }
+  .sapri-container .logoPatro-Row {
+    text-align: center !important;
+    
+  }
+  .sapri-container .logoPatro {
+    height: 90px !important;
+    width: auto !important;
+    padding-right: 0px !important;
+  }
+  .sapri-container p {
+    font-size: 25px !important;
+  }
+  .sapri-button {
+    font-size: 20px !important;
+  }
+
+  .sapri-cedula-image {
+    padding: 20px !important;
+    width: 100%;
+    align-items: center !important;
+    align-content: center !important;
+    margin: auto;
+  }
+
+  .sapri-cedula-image img {
+    height: auto !important;
+    width: 100% !important;
+    text-align: center;
+    padding: 0px !important;
+  }
+
+  .sapri-container .sub-title {
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  .sapri-container .sub-title p {
+    font-size: 10px !important;
+  }
+}
+
 .App {
   text-align: center;
+  background: #E7E7E7;
 }
 
 .App-logo {
@@ -46,15 +108,137 @@
 }
 
 .ImageUploaderInput {
-  font-family: sans-serif;
+  font-family: UniSans;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100vw;
+  text-align: center;
+  margin-top: 20px !important;
+  width: 100% !important;
 }
+
+.ImageUploaderInput .sapri-button {
+  width: 100%;
+}
+
+
 label {
   width: 350px;
   box-sizing: border-box;
+}
+
+.sapri-container {
+  background-color: #E7E7E7;
+  height: 100vh;
+  margin: auto;
+  max-width: 1500px;
+}
+
+.sapri-container form {
+  padding: 20px;
+}
+
+.sapri-container label {
+  width: 100% !important;
+}
+
+.sapri-input {
+  background: #B9A798;
+  border-radius: 10px;
+  border: 0px;
+  font-size: 30px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+}
+
+.sapri-button {
+  background: #B9A798 !important;
+  border: 0px !important;
+  border-radius: 19px !important;
+  font-size: 40px !important;
+  font-family: UniSans;
+  color: #000000 !important;
+  font-weight: bold !important;
+  text-transform: Uppercase !important;
+  margin: 10px;
+  cursor: pointer !important;
+}
+
+.sapri-button .top-spacer {
+  padding-top: 20px !important;
+  
+}
+.sapri-file-input {
+  padding: 25px;
+  display: none;
+}
+
+.sapri-container p {
+  font-weight: bold;
+  font-family: UniSans;
+  font-size: 35px;
+  color: black;
+  text-transform: Uppercase !important;
+  text-align: left;
+  line-height: 0.8 !important;
+  padding-top: 10px;
+}
+
+.sapri-cedula-container-col {
+  text-align: center;
+  padding: 60px !important;
+}
+
+.sapri-container a {
+  text-decoration: none;
+}
+
+.sapri-container .logoPatro-Row {
+  text-align: right;
+}
+
+.sapri-container .logoPatro {
+  height: 140px;
+  width: auto;
+  padding-right: 50px;
+}
+
+.sapri-cedula-image-loading {
+  align-items: center !important;
+  align-content: center !important;
+  padding: 80px;
+
+}
+
+.sapri-cedula-image {
+  padding: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.sapri-cedula-image a {
+  margin: auto;
+}
+
+.sapri-cedula-image img {
+  height: auto;
+  width: auto;
+  text-align: center;
+}
+
+.sapri-container .sub-title {
+  text-align: justify !important;
+}
+
+.sapri-container .sub-title p {
+  font-size: 20px !important;
+}
+
+.text-danger {
+  font-family: UniSans !important;
+  padding-top: 5px;
 }
