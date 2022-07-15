@@ -34,6 +34,7 @@ const EmailInput = (props) => {
             <p>{props.label}</p>
             <input
                 className="sapri-input"
+                maxLength={props.maxLength}
                 type='email'
                 name={props.controlName}
                 placeholder={props.placeholderText}

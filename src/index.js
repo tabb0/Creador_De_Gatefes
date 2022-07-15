@@ -13,13 +13,14 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 
 // Routes
 import MainForm from './pages/mainFormPage';
+import ImageDisplay from './pages/imageDisplay';
 
 export default function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
 				<Route index element={<MainForm />} />
-				<Route path="form" element={<MainForm />} />
+				<Route path="cedula" element={<ImageDisplay />} />
 			</Routes>
 		</BrowserRouter>
 	);

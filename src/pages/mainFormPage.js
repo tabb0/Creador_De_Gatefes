@@ -1,5 +1,5 @@
 // Main React Imports
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 
 // Bootstrap Imports
 import { Container, Button, Row, Col } from 'react-bootstrap';
@@ -17,9 +17,10 @@ import ImageUploader from '../components/imageUploaderInput/imageUploaderInput';
 
 const MainForm = (props) => {
     const [showForm, setShowForm] = useState(true);
-    const [mainImage, setMainImage] = useState("https://ondemand.bannerbear.com/signedurl/5w6PKMLVw43yxG4DQg/image.jpg?modifications=W3sibmFtZSI6Ik5vbWJyZSIsInRleHQiOiJSb25ueSJ9LHsibmFtZSI6ImZvdG8iLCJpbWFnZV91cmwiOiJodHRwczpcL1wvY2VkdWxhLm1pd2ViY3IuY29tXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDIyXC8wN1wvM19kb3dubG9hZC5qcGVnIn0seyJuYW1lIjoiY2VkdWxhIiwidGV4dCI6IjEyMzQ1NjcifV0&s=f4158bee4941ca8cf49d83d8da9044e562945a43c9b6b51b5115547cef0923c8");
+    const [mainImage, setMainImage] = useState("");
     const [loading, setLoading] = useState(true);
     const [postingData, setPostingData] = useState(false);
+    const [email, setEmail] = useState('');
     const ref = useRef();
 
     // Default Form Validator state
@@ -74,9 +75,11 @@ const MainForm = (props) => {
         data.append('email', formFieldValidators.email.value);
         data.append('cedula', formFieldValidators.cedula.value);
 
+        setEmail(formFieldValidators.email.value);
+
         setPostingData(true);
 
-        fetch('https://cedula.miwebcr.com/formProcess.php', {
+        fetch('https://lossaprissa.com/backend/formProcess.php', {
             method: 'POST',
             body: data
         })
@@ -142,7 +145,7 @@ const MainForm = (props) => {
     }
 
     return (
-        <Container fluid className="sapri-container">
+        <Container fluid className="sapri-container centered">
             <Row>
                 <Col md="5" className="text-center">
                     <img className="mainLogoImage" src="/images/img87.png" alt="" />
@@ -157,6 +160,7 @@ const MainForm = (props) => {
                                         label='Nombre:'
                                         controlName='name'
                                         placeholderText=''
+                                        maxLength={100}
                                         handleOnChangeValidation={handleOnChangeValidation}
                                     ></TextInput>
                                 </Col>
@@ -165,6 +169,7 @@ const MainForm = (props) => {
                                         label='Apellido:'
                                         controlName='lastName'
                                         placeholderText=''
+                                        maxLength={100}
                                         handleOnChangeValidation={handleOnChangeValidation}
                                     ></TextInput>
                                 </Col>
@@ -178,6 +183,7 @@ const MainForm = (props) => {
                                         label='Correo Electrónico:'
                                         controlName='email'
                                         placeholderText=''
+                                        maxLength={500}
                                         handleOnChangeValidation={handleOnChangeValidation}
                                     ></EmailInput>
                                 </Col>
@@ -186,6 +192,7 @@ const MainForm = (props) => {
                                         label='Cedula:'
                                         controlName='cedula'
                                         placeholderText=''
+                                        maxLength={20}
                                         handleOnChangeValidation={handleOnChangeValidation}
                                     ></AlphaInput>
                                 </Col>
@@ -231,7 +238,7 @@ const MainForm = (props) => {
                                 : <></>
                             }
                             <Row className="sapri-cedula-image">
-                                <a href={mainImage} download>
+                                <a href={'/cedula?email=' + email}>
                                     <img
                                         ref={ref}
                                         src={mainImage}
@@ -240,7 +247,7 @@ const MainForm = (props) => {
                                 </a>
                             </Row>
                             <Row>
-                                <a className="button sapri-button" href={mainImage} download>Descargar</a>
+                                <a className="button sapri-button" href={'/cedula?email=' + email}>Descargar</a>
                             </Row>
                             <Row>
                                 <button className="sapri-button" onClick={handleCreateOther}>Crear Otra</button>
@@ -251,7 +258,9 @@ const MainForm = (props) => {
             </Row>
             <Row className="logoPatro-Row">
                 <Col>
-                    <img className="logoPatro" src="/images/logopatro.jpg" alt="" />
+                    <a href="https://lossaprissa.com" >
+                        <img className="logoPatro" src="/images/logopatro.jpg" alt="" />
+                    </a>
                 </Col>
             </Row>
         </Container>

@@ -32,6 +32,7 @@ const AlphaInput = (props) => {
         <label>
             <p>{props.label}</p>
             <input
+                maxLength={props.maxLength}
                 className="sapri-input"
                 type='text'
                 name={props.controlName}

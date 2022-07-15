@@ -34,6 +34,7 @@ const TextInput = (props) => {
             <input
                 className="sapri-input"
                 type='text'
+                maxLength={props.maxLength}
                 name={props.controlName}
                 placeholder={props.placeholderText}
                 value={text}

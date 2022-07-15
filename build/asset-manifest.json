@@ -1,15 +1,15 @@
 {
-  "main.css": "/static/css/main.791499c3.chunk.css",
-  "main.js": "/static/js/main.5d27226a.chunk.js",
-  "main.js.map": "/static/js/main.5d27226a.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-  "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-  "static/css/2.619c02f4.chunk.css": "/static/css/2.619c02f4.chunk.css",
-  "static/js/2.178099cc.chunk.js": "/static/js/2.178099cc.chunk.js",
-  "static/js/2.178099cc.chunk.js.map": "/static/js/2.178099cc.chunk.js.map",
-  "index.html": "/index.html",
-  "precache-manifest.c990d3421b34b556145efc8def309e32.js": "/precache-manifest.c990d3421b34b556145efc8def309e32.js",
-  "service-worker.js": "/service-worker.js",
-  "static/css/2.619c02f4.chunk.css.map": "/static/css/2.619c02f4.chunk.css.map",
-  "static/css/main.791499c3.chunk.css.map": "/static/css/main.791499c3.chunk.css.map"
+  "main.css": "https://react.lossaprissa.com/static/css/main.b2c5fad2.chunk.css",
+  "main.js": "https://react.lossaprissa.com/static/js/main.2a37b0d6.chunk.js",
+  "main.js.map": "https://react.lossaprissa.com/static/js/main.2a37b0d6.chunk.js.map",
+  "runtime~main.js": "https://react.lossaprissa.com/static/js/runtime~main.4c917290.js",
+  "runtime~main.js.map": "https://react.lossaprissa.com/static/js/runtime~main.4c917290.js.map",
+  "static/css/2.619c02f4.chunk.css": "https://react.lossaprissa.com/static/css/2.619c02f4.chunk.css",
+  "static/js/2.88e54978.chunk.js": "https://react.lossaprissa.com/static/js/2.88e54978.chunk.js",
+  "static/js/2.88e54978.chunk.js.map": "https://react.lossaprissa.com/static/js/2.88e54978.chunk.js.map",
+  "index.html": "https://react.lossaprissa.com/index.html",
+  "precache-manifest.6a95c88ff6d3ff1c8e4366a27ceec7a9.js": "https://react.lossaprissa.com/precache-manifest.6a95c88ff6d3ff1c8e4366a27ceec7a9.js",
+  "service-worker.js": "https://react.lossaprissa.com/service-worker.js",
+  "static/css/2.619c02f4.chunk.css.map": "https://react.lossaprissa.com/static/css/2.619c02f4.chunk.css.map",
+  "static/css/main.b2c5fad2.chunk.css.map": "https://react.lossaprissa.com/static/css/main.b2c5fad2.chunk.css.map"
 }
